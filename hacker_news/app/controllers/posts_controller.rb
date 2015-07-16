@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
 
   def index
+
+    # Just be posts from one user (params[user:id])
     require_login
-    @user = User.find_by_id(params[:user_id])
-    @posts = Post.all
+    @user = User.find_by_id(session[:user_id])
+    @author = User.find_by_id(params[:user_id])
+    @posts = Post.find_by_id(params[:id])
   end
 
   def new
@@ -23,6 +26,12 @@ class PostsController < ApplicationController
       flash[:errors] = @post.errors.full_messages
       redirect_to new_user_post_path
     end
+  end
+
+  def show
+    require_login
+    @post = Post.find_by_id(params[:id])
+    @user = User.find_by_id(params[:user_id])
   end
 
   private

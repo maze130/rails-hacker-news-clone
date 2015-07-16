@@ -1,4 +1,10 @@
-<h1>Please Log In or Sign Up!</h1>
+<h1>Hacker News Central</h1>
 
 <a href="<%= login_path%>">Log In</a>
 <a href="<%= new_user_path%>">Sign Up</a>
+<br><br>
+
+<% @posts.each do |post| %>
+  <div><a href="<%=user_post_path(post.user_id,post.id)%>"><%= post.title %></a>
+       <%= post.created_at.asctime %></div>
+    <%end%>

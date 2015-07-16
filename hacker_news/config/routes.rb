@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :users do
-    resources :posts
-    resources :comments
+    resources :posts do
+      resources :comments
+    end
   end
 
   get '/login' => 'sessions#new'

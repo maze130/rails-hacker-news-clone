@@ -1,0 +1,12 @@
+<h1><%=@post.title%></h1>
+
+<%= @post.content %>
+<br>
+<br>
+<% @post.comments.each do |comment| %>
+  <div><%= comment.body %></div>
+<%end%>
+<br>
+<a href="<%=new_user_post_comment_path(@user.id,@post.id)%>">Add Comment</a>
+<br>
+<a href="<%=user_posts_path%>">HOME</a>
