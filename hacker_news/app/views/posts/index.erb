@@ -1,0 +1,12 @@
+<h2>Welcome <%=@user.first_name%></h2>
+
+<% @posts.each do |post| %>
+<!-- add a partial to render this -->
+  <div><%= post.title %>
+       <%= post.created_at.asctime %>
+  </div>
+<%end%>
+
+<a href="<%=new_user_post_path%>">New Post</a>
+<br>
+<a href="<%=logout_path%>">Log Out</a>
