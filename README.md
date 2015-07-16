@@ -1,0 +1,1 @@
+# rails-hacker-news-clone
