@@ -1,0 +1,15 @@
+<h2>Create a Post</h2>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+  <div><%= error %></div>
+  <%end%>
+<%end%>
+
+<%= form_for [@user,@post] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit "Create Post"%>
+<%end%>
