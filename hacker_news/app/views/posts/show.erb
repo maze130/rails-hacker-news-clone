@@ -5,8 +5,10 @@
 <br>
 <% @post.comments.each do |comment| %>
   <div><%= comment.body %></div>
+  by <%= comment.user.username%>
 <%end%>
+<br>
 <br>
 <a href="<%=new_user_post_comment_path(@user.id,@post.id)%>">Add Comment</a>
 <br>
-<a href="<%=user_posts_path%>">HOME</a>
+<a href="<%=user_posts_path(session[:user_id])%>">My Profile</a>
