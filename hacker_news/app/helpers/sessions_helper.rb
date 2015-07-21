@@ -1,4 +1,5 @@
 module SessionsHelper
+  # Move into application helper and the delete this file.
   def logged_in?
     !!session[:user_id]
   end

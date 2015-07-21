@@ -5,7 +5,9 @@ class PostsController < ApplicationController
     # Just be posts from one user (params[user:id])
     require_login
     @user = User.find_by_id(session[:user_id])
+    # CN: @author = @post.user < -- This avoids the database hit you get on line 9.
     @author = User.find_by_id(params[:user_id])
+    # CN: Use @post since you're finding a single post.
     @posts = Post.find_by_id(params[:id])
   end
 

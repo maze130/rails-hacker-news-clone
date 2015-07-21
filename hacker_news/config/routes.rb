@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  # CN: Avoid triple nesting - have posts nested under users, and then another with comments under posts.
   resources :users do
     resources :posts do
       resources :comments

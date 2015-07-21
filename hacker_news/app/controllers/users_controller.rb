@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    # Move line 10 to within the if statment b/c there's no id on user yet since it hasn't saved.
     session[:user_id] = user.id
     if user.save
       redirect_to user_posts_path(user.id)

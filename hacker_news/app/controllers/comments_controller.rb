@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    # You only need to use instance variable ("@") if it's being used in the view.
     @user = User.find_by_id(session[:user_id])
     @author = User.find_by_id(params[:user_id])
     @post = Post.find_by_id(params[:post_id])
